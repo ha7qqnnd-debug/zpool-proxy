@@ -5,8 +5,8 @@ const PORT = process.env.PORT || 8080;
 const wss = new WebSocket.Server({ port: PORT });
 
 wss.on('connection', (ws) => {
-    // الاتصال بسيرفر ZPool
-    const stratum = net.connect(7019, 'minotaurx.na.mine.zpool.ca', () => {});
+    // الاتصال بمنفذ RandomX لـ ZPool (port: 6033)
+    const stratum = net.connect(6033, 'randomx.na.mine.zpool.ca', () => {});
 
     ws.on('message', (msg) => {
         try {
